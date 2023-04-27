@@ -1,4 +1,4 @@
-name: 'Upstream Sync'
+name: 'Upstream Sync dataserver'
 
 on:
   schedule:
@@ -16,9 +16,9 @@ jobs:
     # REQUIRED step
     # Step 1: run a standard checkout action, provided by github
     - name: Checkout target repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
-        repository: uniuuu/dataserver
+        repository: uniuuu/zotero-build
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
         ref:  master
@@ -33,9 +33,9 @@ jobs:
       with:
         target_sync_branch: master
         # REQUIRED 'target_repo_token' exactly like this!
-        target_repo_token: ${{ secrets.DS_REPO_SECRET }}
+        target_repo_token: ${{ secrets.ZB_REPO_SECRET }}
         upstream_sync_branch: master
-        upstream_sync_repo: zotero/dataserver
+        upstream_sync_repo: zotero/zotero-build
           #        upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
 
         # Set test_mode true to run tests instead of the true action!!
