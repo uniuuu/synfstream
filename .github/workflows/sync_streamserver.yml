@@ -1,4 +1,4 @@
-name: 'Upstream Sync dataserver'
+name: 'Upstream Sync stream-server'
 
 on:
   schedule:
